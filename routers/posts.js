@@ -6,11 +6,13 @@ const posts = require('../data/posts.js')
 
 //index
 router.get('/', (req, res) => {
-	res.json('post')
+	res.json(posts)
 });
 
 //show
 router.get('/:id', (req, res) => {
-	res.json('posts')
+	const id = parseInt(req.params.id)
+	const post = posts.find(post => post.id === id);
+	res.json(post);
 });
 module.exports = router;
