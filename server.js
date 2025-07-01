@@ -1,13 +1,17 @@
 const express = require('express')
 const app = express()
-const port = 3000
-const postRouter = require("./routers/posts.js")
+const PORT = process.env.PORT || 3000
+const postRouter = require("./routers/posts")
+const posts = require('../data/posts.js')
 
+app.use('/api/posts', postRouter)
 
 app.get('/', (req, res) => {
-	res.json('Hello World!')
+	res.send('Hello World!')
 })
 
-app.listen(port, () => {
-	console.log(`Example app listening on port http://localhost:${port}`)
+app.listen(PORT, () => {
+	console.log(`Example app listening on port http://localhost:${PORT}`)
 })
+
+//app.use('/api/posts', postRouter)
