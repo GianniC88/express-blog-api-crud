@@ -1,8 +1,8 @@
 const express = require('express')
 const app = express()
 const PORT = process.env.PORT || 3000
-const postRouter = require("./routers/posts")
-const posts = require('../data/posts.js')
+const postRouter = require("./routers/posts.js")
+
 
 app.use('/api/posts', postRouter)
 
