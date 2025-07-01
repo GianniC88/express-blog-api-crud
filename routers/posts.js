@@ -11,8 +11,12 @@ router.get('/', (req, res) => {
 
 //show
 router.get('/:id', (req, res) => {
+	//recuperiamo l'id dall'URL e trasformiamolo in numero
 	const id = parseInt(req.params.id)
+
+	//cerchiamo il post tramite id
 	const post = posts.find(post => post.id === id);
+	//restituiamo sotto forma di JASON
 	res.json(post);
 });
 module.exports = router;
@@ -37,11 +41,10 @@ router.delete('/:id', (req, res) => {
 	}
 	//rimozione post n°
 	posts.splice(posts.indexOf(post), 1)
-
+	//verifica sul terminale
 	console.log(posts)
-
+	//restituiamo lo status corretto
 	res.sendStatus(204)
 })
 
 
-//
