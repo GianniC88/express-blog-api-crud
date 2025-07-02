@@ -72,13 +72,13 @@ router.post('/', (req, res) => {
 	res.status(201).json(newPost)
 
 })
-
+/*update */
 router.put('/:id', (req, res) => {
 	//recuper id dall'URL e si trasforma in numero
-	const postId = parseInt(req.params.id)
+	const Id = parseInt(req.params.id)
 
 	//cerchiamo il post tramide id
-	const post = posts.find(post => post.id === postId);
+	const post = posts.find(post => post.id === Id);
 
 
 	//controllo
@@ -96,6 +96,8 @@ router.put('/:id', (req, res) => {
 	post.content = req.body.content
 	post.image = req.body.image
 	post.tags = req.body.tags
+
+
 
 	console.log(posts)
 	res.json(posts)
