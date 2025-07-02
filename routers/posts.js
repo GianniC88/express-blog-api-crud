@@ -48,3 +48,10 @@ router.delete('/:id', (req, res) => {
 })
 
 
+/*store (create)*/
+router.post('/', (req, res) => {
+	console.log(req.body, 'ciao')
+	res.send('Creazione nuovo Post');
+
+})
+
