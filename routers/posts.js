@@ -73,3 +73,32 @@ router.post('/', (req, res) => {
 
 })
 
+router.put('/:id', (req, res) => {
+	//recuper id dall'URL e si trasforma in numero
+	const postId = parseInt(req.params.id)
+
+	//cerchiamo il post tramide id
+	const post = posts.find(post => post.id === postId);
+
+
+	//controllo
+	if (!post) {
+		return res.status(404).json({
+			error: true,
+			message: "inesistente"
+		});
+
+	}
+
+	//aggiorno il post
+
+	post.title = req.body.title
+	post.content = req.body.content
+	post.image = req.body.image
+	post.tags = req.body.tags
+
+	console.log(posts)
+	res.json(posts)
+
+})
+
