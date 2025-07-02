@@ -50,7 +50,7 @@ router.delete('/:id', (req, res) => {
 
 /*store (create)*/
 router.post('/', (req, res) => {
-	console.log(req.body, 'ciao')
+	//console.log(req.body, 'ciao')
 
 	const postId = posts[posts.length - 1].id + 1
 	console.log(postId);
@@ -62,11 +62,12 @@ router.post('/', (req, res) => {
 		image: req.body.image,
 		tags: req.body.tags
 	}
-	console.log(newPost)
+	//console.log(newPost);
 
-	res.send('Creazione nuovo Post');
+	//res.send('Creazione nuovo Post');
 
-	posts.push(newPost)
+	posts.push(newPost);
+	console.log(posts)
 
 	res.status(201).json(newPost)
 
