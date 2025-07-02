@@ -3,7 +3,8 @@ const app = express()
 const PORT = process.env.PORT
 const postRouter = require("./routers/posts.js")
 
-
+app.use(express.static('public'))
+app.use(express.json())
 app.use('/api/posts', postRouter)
 
 app.get('/', (req, res) => {
