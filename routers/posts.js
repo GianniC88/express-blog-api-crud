@@ -112,4 +112,19 @@ router.put('/:id', (req, res) => {
 
 })
 
+//modify (update)
+router.patch('/:id', (req, res) => {
+	const id = parseInt(req.params.id)
+
+	const post = posts.find(post => post.id === id)
+
+	if (!post) {
+		return req.statusCode(404).json({
+			error: true,
+			message: 'non trovato'
+		})
+	}
+	res.send(`il post che vuoi modificare è l'id: ${id}`)
+})
+
 module.exports = router;
