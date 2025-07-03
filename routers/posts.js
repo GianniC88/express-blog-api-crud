@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const PORT = process.env.PORT
-const posts = require('../data/posts.js')
+const PORT = process.env.PORT;
+const posts = require('../data/posts.js');
 
 
 //index
@@ -16,6 +16,14 @@ router.get('/:id', (req, res) => {
 
 	//cerchiamo il post tramite id
 	const post = posts.find(post => post.id === id);
+	//errore 404 se il post non è presente
+	if (!post) {
+		return res.sendStatus(404).json({
+			error: true,
+			message: `l'id ${id} non è presente`
+		})
+		res.json(post)
+	}
 	//restituiamo sotto forma di JASON
 	res.json(post);
 });
