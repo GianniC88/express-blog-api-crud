@@ -2,12 +2,11 @@ const express = require('express');
 const router = express.Router();
 const PORT = process.env.PORT;
 const posts = require('../data/posts.js');
+const postController = require("../controllers/postController.js")
 
 
 //index
-router.get('/', (req, res) => {
-	res.json(posts)
-});
+router.get('/', postController.index);
 
 //show
 router.get('/:id', (req, res) => {
