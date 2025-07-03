@@ -100,7 +100,8 @@ router.put('/:id', (req, res) => {
 
 
 	console.log(posts)
-	res.json(posts)
+	res.json(post)
 
 })
 
+module.exports = router;
