@@ -10,7 +10,7 @@ router.get('/', postController.index);
 
 //show
 router.get('/:id', postController.show);
-module.exports = router;
+
 
 //destroy
 router.delete('/:id', postController.destroy)

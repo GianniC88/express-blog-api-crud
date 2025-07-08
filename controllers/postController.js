@@ -136,4 +136,4 @@ const modify = (req, res) => {
 	res.send(`il post che vuoi modificare è l'id: ${id}`)
 }
 
-module.exports = { index, show, destroy, update, modify }
+module.exports = { index, show, destroy, store, update, modify }
